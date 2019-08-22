@@ -1,3 +1,10 @@
+CHANGES IN VERSION 1.2.7 [2019-08-22]
+-------------------------
+    UPDATED FEATURES
+	 - Update normalization options in proteinSummarization() function, including global protein normalization and local peptide normalization with respect to reference channel
+	 - Fix the bug in the contrast comparison of groupComparisonTMT() function.
+
+
 CHANGES IN VERSION 1.2.2 [2019-06-03]
 -------------------------
     UPDATED FEATURES

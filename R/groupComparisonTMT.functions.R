@@ -78,6 +78,8 @@
       ## get the data for protein i
       sub_data <- data %>% dplyr::filter(Protein == proteins[i]) ## data for protein i
       sub_data <- na.omit(sub_data)
+      ## record the contrast matrix for each protein
+      sub.contrast.matrix <- contrast.matrix
       
       if(nrow(sub_data) != 0){
         sub_groups <- as.character(unique(sub_data$Group)) # groups in the sub data
@@ -151,20 +153,44 @@
           }
         } else { ## Compare one specific contrast
           # perform testing for required contrasts
-          for(j in 1:nrow(contrast.matrix)){
+          for(j in 1:nrow(sub.contrast.matrix)){
             count <- count + 1
             res[count, "Protein"] <- proteins[i] ## protein names
-            res[count, "Comparison"] <- row.names(contrast.matrix)[j] ## comparison
+            res[count, "Comparison"] <- row.names(sub.contrast.matrix)[j] ## comparison
             
-            # make sure all the groups in the contrast exist
-            if(all(colnames(contrast.matrix)[contrast.matrix[j,]!=0] %in% sub_groups) & testable){
+            # groups with positive coefficients
+            positive.groups <- colnames(sub.contrast.matrix)[sub.contrast.matrix[j,]>0]
+            # groups with negative coefficients
+            negative.groups <- colnames(sub.contrast.matrix)[sub.contrast.matrix[j,]<0]
+            # make sure at least one group from each side of the contrast exist
+            if(any(positive.groups %in% sub_groups) & 
+               any(negative.groups %in% sub_groups) & 
+               testable){
+              
+              # if some groups not exist in the protein data
+              if(!(all(positive.groups %in% sub_groups) & 
+                   all(negative.groups %in% sub_groups))){
+                ## tune the coefficients of positive groups so that their summation is 1
+                temp <- sub.contrast.matrix[j,sub_groups][sub.contrast.matrix[j,sub_groups] > 0]
+                temp <- temp*(1/sum(temp, na.rm = TRUE))
+                sub.contrast.matrix[j,sub_groups][sub.contrast.matrix[j,sub_groups] > 0] <- temp
+                
+                ## tune the coefficients of positive groups so that their summation is 1
+                temp2 <- sub.contrast.matrix[j,sub_groups][sub.contrast.matrix[j,sub_groups] < 0]
+                temp2 <- temp2*abs(1/sum(temp2, na.rm = TRUE))
+                sub.contrast.matrix[j,sub_groups][sub.contrast.matrix[j,sub_groups] < 0] <- temp2
+                
+                ## set the coefficients of non-existing groups to zero
+                sub.contrast.matrix[j,setdiff(colnames(sub.contrast.matrix), sub_groups)] <- 0
+              }
+              
               ## calculate the size of each group
               group_df <- sub_data %>% group_by(Group) %>% dplyr::summarise(n = sum(!is.na(Abundance)))
               group_df$Group <- as.character(group_df$Group)
               
               ## variance of diff
-              variance <- s2.post * sum((1/group_df$n) * ((contrast.matrix[j, group_df$Group])^2))
-              FC <- sum(coeff*(contrast.matrix[j, names(coeff)])) # fold change
+              variance <- s2.post * sum((1/group_df$n) * ((sub.contrast.matrix[j, group_df$Group])^2))
+              FC <- sum(coeff*(sub.contrast.matrix[j, names(coeff)])) # fold change
               res[count, "log2FC"] <- FC
               
               ## Calculate the t statistic
