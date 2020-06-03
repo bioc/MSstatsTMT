@@ -76,7 +76,8 @@
             ## For each run, use msstats dataprocess
             message(paste("Summarizing for Run :", runs[i] ,
                           "(", i, " of ", num.run, ")"))
-            sub_data <- data %>% filter(MSRun == runs[i])
+            sub_data <- data %>% dplyr::filter(MSRun == runs[i])
+            sub_data <- as.data.frame(sub_data)
             output.msstats <- dataProcess(sub_data,
                                           normalization=FALSE,
                                           summaryMethod = 'TMP',
