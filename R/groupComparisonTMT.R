@@ -256,7 +256,7 @@ MSstatsModerateTTest = function(summarized, fitted_models, moderated) {
     eb_input_df = fitted_models[variance_df != 0 & !is.na(variance_df),
                                 variance_df]
     if (moderated) {
-        eb_fit = limma::squeezeVar(eb_input_s2, eb_input_df)
+        eb_fit = limma::squeezeVar(eb_input_s2, eb_input_df, legacy = TRUE)
         df_prior = eb_fit$df.prior
         variance_prior = eb_fit$var.prior
     } else { ## ordinary t statistic
