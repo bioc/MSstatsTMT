@@ -15,6 +15,6 @@ These objects are imported from other packages. Follow the links
 below to see their documentation.
 
 \describe{
-  \item{MSstatsConvert}{\code{\link[MSstatsConvert]{MaxQtoMSstatsTMTFormat}}, \code{\link[MSstatsConvert]{OpenMStoMSstatsTMTFormat}}, \code{\link[MSstatsConvert]{PDtoMSstatsTMTFormat}}, \code{\link[MSstatsConvert]{PhilosophertoMSstatsTMTFormat}}, \code{\link[MSstatsConvert]{SpectroMinetoMSstatsTMTFormat}}}
+  \item{MSstatsConvert}{\code{\link[MSstatsConvert:MaxQtoMSstatsTMTFormat]{MaxQtoMSstatsTMTFormat()}}, \code{\link[MSstatsConvert:OpenMStoMSstatsTMTFormat]{OpenMStoMSstatsTMTFormat()}}, \code{\link[MSstatsConvert:PDtoMSstatsTMTFormat]{PDtoMSstatsTMTFormat()}}, \code{\link[MSstatsConvert:PhilosophertoMSstatsTMTFormat]{PhilosophertoMSstatsTMTFormat()}}, \code{\link[MSstatsConvert:SpectroMinetoMSstatsTMTFormat]{SpectroMinetoMSstatsTMTFormat()}}}
 }}
 

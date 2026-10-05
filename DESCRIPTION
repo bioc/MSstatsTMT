@@ -1,13 +1,13 @@
 Package: MSstatsTMT
 Title: Protein Significance Analysis in shotgun mass spectrometry-based proteomic experiments with tandem mass tag (TMT) labeling
-Version: 2.21.1
+Version: 2.21.2
 Date: 2026-08-31
 Description: The package provides statistical tools for detecting differentially abundant proteins in shotgun mass spectrometry-based proteomic experiments with tandem mass tag (TMT) labeling. It provides multiple functionalities, including aata visualization, protein quantification and normalization, and statistical modeling and inference. Furthermore, it is inter-operable with other data processing tools, such as Proteome Discoverer, MaxQuant, OpenMS and SpectroMine.
-Authors@R: c(person("Devon", "Kohler", email = "kohler.d@northeastern.edu", role=c("aut","cre")),
+Authors@R: c(person("Devon", "Kohler", email = "kohler.d@northeastern.edu", role=c("aut")),
   person("Ting", "Huang", email = "thuang0703@gmail.com", role=c("aut")),
 	person("Meena", "Choi", email = "mnchoi67@gmail.com", role="aut"),
 	person("Mateusz", "Staniak", email = "mtst@mstaniak.pl", role = "aut"),
-    	person("Tony", "Wu", email = "wu.anthon@northeastern.edu", role = "aut"),
+    	person("Tony", "Wu", email = "wu.anthon@northeastern.edu", role = c("aut","cre")),
     	person("Deril", "Raju", email = "raju.d@northeastern.edu", role = "aut"),
 	person("Sicheng", "Hao", email = "hao.sic@husky.neu.edu", role = "aut"),
 	person("Olga", "Vitek", email = "o.vitek@northeastern.edu", role = "aut"))
@@ -23,4 +23,4 @@ Encoding: UTF-8
 LazyData: true
 URL: http://msstats.org/msstatstmt/
 BugReports: https://groups.google.com/forum/#!forum/msstats
-RoxygenNote: 7.3.3
+Config/roxygen2/version: 8.1.0

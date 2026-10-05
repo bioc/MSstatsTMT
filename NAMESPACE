@@ -11,48 +11,64 @@ export(groupComparisonTMT)
 export(proteinSummarization)
 import(data.table)
 import(ggplot2)
-importFrom(MSstats,MSstatsContrastMatrix)
-importFrom(MSstats,dataProcess)
-importFrom(MSstats,getSelectedProteins)
-importFrom(MSstats,savePlot)
-importFrom(MSstats,theme_msstats)
-importFrom(MSstatsConvert,MSstatsSaveSessionInfo)
-importFrom(MSstatsConvert,MaxQtoMSstatsTMTFormat)
-importFrom(MSstatsConvert,OpenMStoMSstatsTMTFormat)
-importFrom(MSstatsConvert,PDtoMSstatsTMTFormat)
-importFrom(MSstatsConvert,PhilosophertoMSstatsTMTFormat)
-importFrom(MSstatsConvert,SpectroMinetoMSstatsTMTFormat)
-importFrom(grDevices,dev.off)
-importFrom(grDevices,hcl)
-importFrom(grDevices,pdf)
-importFrom(graphics,axis)
-importFrom(graphics,image)
-importFrom(graphics,legend)
-importFrom(graphics,mtext)
-importFrom(graphics,par)
-importFrom(graphics,plot)
-importFrom(graphics,plot.new)
-importFrom(graphics,title)
-importFrom(htmltools,div)
-importFrom(htmltools,save_html)
-importFrom(htmltools,tagList)
+importFrom(MSstats,
+  MSstatsContrastMatrix,
+  dataProcess,
+  getSelectedProteins,
+  savePlot,
+  theme_msstats
+)
+importFrom(MSstatsConvert,
+  MSstatsSaveSessionInfo,
+  MaxQtoMSstatsTMTFormat,
+  OpenMStoMSstatsTMTFormat,
+  PDtoMSstatsTMTFormat,
+  PhilosophertoMSstatsTMTFormat,
+  SpectroMinetoMSstatsTMTFormat
+)
+importFrom(grDevices,
+  dev.off,
+  hcl,
+  pdf
+)
+importFrom(graphics,
+  axis,
+  image,
+  legend,
+  mtext,
+  par,
+  plot,
+  plot.new,
+  title
+)
+importFrom(htmltools,
+  div,
+  save_html,
+  tagList
+)
 importFrom(lmerTest,lmer)
 importFrom(methods,new)
-importFrom(plotly,add_trace)
-importFrom(plotly,ggplotly)
-importFrom(plotly,layout)
-importFrom(plotly,plot_ly)
-importFrom(plotly,style)
-importFrom(plotly,subplot)
-importFrom(stats,anova)
-importFrom(stats,coef)
-importFrom(stats,lm)
-importFrom(stats,median)
-importFrom(stats,medpolish)
-importFrom(stats,model.matrix)
-importFrom(stats,na.omit)
-importFrom(stats,p.adjust)
-importFrom(stats,pt)
-importFrom(stats,qnorm)
-importFrom(utils,setTxtProgressBar)
-importFrom(utils,txtProgressBar)
+importFrom(plotly,
+  add_trace,
+  ggplotly,
+  layout,
+  plot_ly,
+  style,
+  subplot
+)
+importFrom(stats,
+  anova,
+  coef,
+  lm,
+  median,
+  medpolish,
+  model.matrix,
+  na.omit,
+  p.adjust,
+  pt,
+  qnorm
+)
+importFrom(utils,
+  setTxtProgressBar,
+  txtProgressBar
+)
